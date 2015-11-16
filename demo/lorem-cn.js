@@ -1,6 +1,6 @@
 /**
- * Forked from https://github.com/webzhao/lorem-cn
  * A Lorem ipsum generator for Chinese language.
+ * original: https://github.com/webzhao/lorem-cn
  * @author webzhao@gmail.com
  * @version 1.0
  * @extention pujunyu@gmail.com

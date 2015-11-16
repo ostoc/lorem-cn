@@ -1,9 +1,9 @@
-lorem-cn: A ramdom Chinese characters generator
+A ramdom Chinese characters generator
 ========
 
-Lorem ipsum generator for Chinese language in Javascript. [See the demo](http://webzhao.github.com/lorem-cn/)
+Lorem ipsum generator for Chinese language in Javascript.
 
-中文版乱数假文生成器，Javascript实现。[查看Demo](http://webzhao.github.com/lorem-cn/)
+中文版乱数假文生成器，Javascript实现。
 
 ## Usage 使用方法
 
@@ -20,3 +20,7 @@ Use `lorem` function with the length of text you wish to genrate as parameter. �
 If you don't want punctuations in the generated text, set `usePunc` to `false`. 如果你不想让生成的文本包含标点符号，在选项中设置 `usePunc` 为 `false`。
 
 	lorem(20, {usePunc: false}); //20 characters without punctuations
+	
+If you want break the paragraph, set `true`. 如果你想要使用分段功能请设置为 `true`。
+
+	lorem(2000, {usePunc: true}, true); //2000 characters with punctuations and break

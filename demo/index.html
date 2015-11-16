@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>简体中文乱字生成器</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="lorem-cn.js"></script>
+    </head>
+    <body>
+        <div class="wapper">
+            <div class="header">简体中文乱字生成器</div>
+            <div class="desc u">在做设计的时候经常需要一些填充的文字，英文中可以使用 Lorem Ipsum，之前一直用的繁体中文的。在 Github 上找到一个开源的库，做了些补充，做成了这个简体中文的乱字生成器。</div>
+            <div class="g">
+                <div class="u" style="width:120px"><button onclick="getSet(15,false,true) "class="green">短标题</button></div>
+                <div class="u" style="width:120px"><button onclick="getSet(30,false,true) "class="green">长标题</button></div>
+                <div class="u" style="width:180px"><button onclick="getSet(100,true,false)">100段落文字</button></div>
+                <div class="u" style="width:180px"><button onclick="getSet(300,true,false)">300段落文字</button></div>
+                <div class="u" style="width:200px"><button onclick="getSet(800,true,true)">来段800字散文</button></div>
+            </div>
+            <div class="g">
+                <div class="u" style="width:300px"><input id="wordLength" type="number" placeholder="输入文字数量 默认200字"></div>
+                <div class="u label" style="width:100px">加点符号</div>
+                <div class="u" style="width:100px">
+                    <div class="slideTwo">
+                        <input type="checkbox" value="false" id="usePunc"  />
+                        <label for="usePunc"></label>
+                    </div>
+                </div>
+                <div class="u label" style="width:80px">分段</div>
+                <div class="u" style="width:100px">
+                    <div class="slideTwo">
+                        <input type="checkbox" value="false" id="useBreak" name="useBreak" />
+                        <label for="useBreak"></label>
+                    </div>
+                </div>
+                <div class="u" style="width:120px"><button onclick="getOwn()">生成</button></div>
+            </div>
+            <div class="g u">
+                <textarea id ="preview" type="text" onclick="tip()" class="boxpreview" rows= 10 ></textarea>
+            </div>
+            <div class="g u">
+                <div style="width:70%;float:left;display:block"><a id="tips"></a></div>
+                <div style="width:30%;float:right"><button onclick="tip()">全选</button></div>
+            </div>
+        </div>
+        
+        <script>
+        var preview = document.getElementById('preview'),
+        tips = document.getElementById('tips');
+        preview.value = lorem(100, {usePunc: usePunc},false)
+        function getSet (length,usePunc,breakText) {
+        preview.value = lorem(length, {usePunc: usePunc},breakText);
+        }
+        function tip(){
+        preview.select();
+        tips.innerHTML = '⌘ + C 复制到剪切板';
+        setTimeout(function(){tips.innerHTML = '';}, 2000);
+        }
+        function getOwn(){
+        usePunc = document.getElementById('usePunc').checked;
+        length = document.getElementById('wordLength').value;
+        breakText = document.getElementById('useBreak').checked;
+        document.getElementById('preview').value = lorem(length, {usePunc: usePunc}, breakText);
+        }
+        </script>
+    </body>
+</html>
